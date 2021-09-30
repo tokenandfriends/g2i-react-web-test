@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,6 +13,13 @@ import ResultPage from './ResultPage'
 
 
 const App = () => {
+  const [rightAnswers, setRightAnswers] = useState(0)
+
+  const countAnswer = () => {
+    setRightAnswers(rightAnswers+1)
+    console.log('COUNTED!')
+  }
+
   return (
     <Router>
       <Container fixed>
@@ -21,10 +28,10 @@ const App = () => {
             <HomePage />
           </Route>
           <Route path="/quiz">
-            <QuizPage />
+            <QuizPage countAnswer={countAnswer}/>
           </Route>
           <Route path="/results">
-            <ResultPage />
+            <ResultPage rightAnswers={rightAnswers}/>
           </Route>
         </Switch>
       </Container>

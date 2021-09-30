@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const QuizPage = () => {
+const QuizPage = ({countAnswer}) => {
   const history = useHistory()
   const classes = useStyles()
   const [questions, setQuestions] = useState([])
@@ -31,15 +31,22 @@ const QuizPage = () => {
       })
   }, [])
 
-  const nextQuestion = () => {
+  const checkAnswer = (answer) => {
+    if(questions[currentIndex].correct_answer.toLowerCase() === answer){
+      console.log('answer is RIGHT!')
+      countAnswer()
+    }
+  }
+
+  const nextQuestion = (answer) => {
     if(count < 10){
+      checkAnswer(answer)
       setCount(count+1)
       setCurrentIndex(currentIndex+1)
     }
     else{
       history.push("/results")
     }
-    console.log('quiz is finished')
   }
 
   return(
@@ -56,12 +63,12 @@ const QuizPage = () => {
         <Grid item xs={12} md={12}>
           <Grid container spacing={3}>
             <Grid item xs={6}>
-              <Button onClick={nextQuestion}>
+              <Button onClick={() => nextQuestion('true')}>
                 True
               </Button>
             </Grid>
             <Grid item xs={6}>
-              <Button onClick={nextQuestion}>
+              <Button onClick={() => nextQuestion('false')}>
                 False
               </Button>
             </Grid>
