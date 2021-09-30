@@ -3,6 +3,8 @@ import Axios from 'axios'
 // material-ui
 import { makeStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
+// components
+import RenderQuestion from './RenderQuestion'
 
 // styles
 const useStyles = makeStyles(theme => ({
@@ -14,6 +16,7 @@ const useStyles = makeStyles(theme => ({
 const QuizPage = () => {
   const classes = useStyles()
   const [questions, setQuestions] = useState([])
+  const [currentIndex, setCurrentIndex] = useState(0)
   const [count, setCount] = useState(1)
   const [isLoading, setIsLoading] = useState(true)
 
@@ -25,19 +28,16 @@ const QuizPage = () => {
       })
   }, [])
 
-  const listQuestions = questions.map((question, key) => (
-    <Grid key={key} item xs={12} md={12}>
-      {question.category}
-    </Grid>
-  ))
-
   return(
     <div className={classes.root}>
       <Grid container spacing={3}>
         <Grid item xs={12} md={12}>
-          <Grid container spacing={3}>
-            {!isLoading ? listQuestions : <p>loading...</p>}
-          </Grid>
+          {
+            !isLoading ?
+              <RenderQuestion question={questions[currentIndex]} />
+              :
+              <p>loading...</p>
+          }
         </Grid>
         <Grid item xs={12} md={12}>
           {`${count} of 10`}
