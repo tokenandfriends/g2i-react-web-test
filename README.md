@@ -7,6 +7,8 @@ If yarn is not your thing, it's all good. Use npm.
 ### `npm install`
 ### `npm start`
 
+Then open your favorite browser and go to [http://localhost:3000]
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
