@@ -1,3 +1,12 @@
+# TLDR; quick guide to start the application
+### `yarn install`
+### `yarn start`
+
+If yarn is not your thing, it's all good. Use npm.
+
+### `npm install`
+### `npm start`
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
