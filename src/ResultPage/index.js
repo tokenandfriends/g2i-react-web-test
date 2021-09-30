@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const ResultPage = ({rightAnswers}) => {
+const ResultPage = ({rightAnswers, resetAnswers}) => {
   const classes = useStyles()
   return (
     <div className={classes.root}>
@@ -30,7 +30,7 @@ const ResultPage = ({rightAnswers}) => {
         </Grid>
         <Grid item xs={12} md={12}>
           <Link to="/quiz" className={classes.button}>
-            <Button>
+            <Button onClick={() => resetAnswers()}>
               PLAY AGAIN?
             </Button>
           </Link>

@@ -17,7 +17,10 @@ const App = () => {
 
   const countAnswer = () => {
     setRightAnswers(rightAnswers+1)
-    console.log('COUNTED!')
+  }
+
+  const resetAnswers = () => {
+    setRightAnswers(0)
   }
 
   return (
@@ -31,7 +34,7 @@ const App = () => {
             <QuizPage countAnswer={countAnswer}/>
           </Route>
           <Route path="/results">
-            <ResultPage rightAnswers={rightAnswers}/>
+            <ResultPage rightAnswers={rightAnswers} resetAnswers={resetAnswers}/>
           </Route>
         </Switch>
       </Container>
