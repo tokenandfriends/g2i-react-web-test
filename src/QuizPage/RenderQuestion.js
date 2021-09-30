@@ -8,7 +8,9 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center'
   },
   box:{
-    border: '2px solid black',
+    border: '2px solid black'
+  },
+  text: {
     padding: '20px'
   }
 }))
@@ -21,6 +23,7 @@ const RenderQuestion = ({question}) => {
               .replace(/&gt;/g, ">")
               .replace(/&quot;/g, '"')
               .replace(/&amp;/g, "&")
+              .replace(/&#039;/g, "'")
   }
 
   return(
@@ -30,7 +33,9 @@ const RenderQuestion = ({question}) => {
         <h1>{question.category}</h1>
       </Grid>
       <Grid item xs={12} md={12} className={classes.box}>
-        {unescape(question.question)}
+        <p className={classes.text}>
+          {unescape(question.question)}
+        </p>
       </Grid>
     </Grid>
   )

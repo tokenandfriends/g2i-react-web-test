@@ -3,6 +3,7 @@ import Axios from 'axios'
 // material-ui
 import { makeStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
+import Button from '@material-ui/core/Button'
 // components
 import RenderQuestion from './RenderQuestion'
 
@@ -28,6 +29,12 @@ const QuizPage = () => {
       })
   }, [])
 
+  const nextQuestion = () => {
+    setCount(count+1)
+    setCurrentIndex(currentIndex+1)
+    console.log('next question...')
+  }
+
   return(
     <div className={classes.root}>
       <Grid container spacing={3}>
@@ -38,6 +45,20 @@ const QuizPage = () => {
               :
               <p>loading...</p>
           }
+        </Grid>
+        <Grid item xs={12} md={12}>
+          <Grid container spacing={3}>
+            <Grid item xs={6}>
+              <Button onClick={() => nextQuestion}>
+                True
+              </Button>
+            </Grid>
+            <Grid item xs={6}>
+              <Button onClick={() => nextQuestion}>
+                False
+              </Button>
+            </Grid>
+          </Grid>
         </Grid>
         <Grid item xs={12} md={12}>
           {`${count} of 10`}
