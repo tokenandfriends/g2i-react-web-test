@@ -1,5 +1,5 @@
 /**
- * 
+ * Function: unescape
  * @param {string} str 
  * @returns pass a string into a regEx function that will replace escaped characters. This will allow the text to render these special characters to a human readable format.
  */

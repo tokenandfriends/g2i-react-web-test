@@ -26,12 +26,12 @@ const App = () => {
   }
 
   /**
+   *  Function: resultCollection
    *  Gathers each question and an array of Objects
    * @param {object} obj is the json format of the answered question
    * @param {number} input if the condition to check if the answer is right or wrong 
    */
   const resultCollection = (obj, input) => {
-    console.log('add results here...')
     if(input === 0){
       setResultsArray(resultsArray => [...resultsArray, {correct: false, question: obj}])
     }

@@ -31,6 +31,12 @@ const QuizPage = ({countAnswer, resultCollection}) => {
       })
   }, [])
 
+  /**
+   * Function: checkAnswer
+   * Checks the correct answer from the indexed question. If the condition is true then pass the question into the following parent component props resultCollection.
+   * This function will also count towards the correct answer to the parent component props countAnswer if the user has selected the right answer.
+   * @param {String} answer 
+   */
   const checkAnswer = (answer) => {
     if(questions[currentIndex].correct_answer.toLowerCase() === answer){
       resultCollection(questions[currentIndex], 1)
@@ -41,6 +47,14 @@ const QuizPage = ({countAnswer, resultCollection}) => {
     }
   }
 
+  /**
+   * Function: nextQuestion
+   * Passes the following answer parameter to the checkAnswer function.
+   * This function also add a count + 1 for a visual representation of the question the user is currently on.
+   * Next this function will increase the index by 1 to render the next question.
+   * Lastly if the user exceeds the 10 question, the application will redirect the user to the results page.
+   * @param {String} answer true or false
+   */
   const nextQuestion = (answer) => {
     if(count < 10){
       checkAnswer(answer)

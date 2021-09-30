@@ -22,7 +22,6 @@ const RenderQuestion = ({question}) => {
 
   return(
     <Grid container spacing={3} className={classes.root}>
-      {console.log('what is the question? ', question)}
       <Grid item xs={12} md={12}>
         <h1>{question.category}</h1>
       </Grid>
