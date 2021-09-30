@@ -9,6 +9,7 @@ import Container from '@material-ui/core/Container'
 // components
 import HomePage from './HomePage'
 import QuizPage from './QuizPage'
+import ResultPage from './ResultPage'
 
 
 const App = () => {
@@ -21,6 +22,9 @@ const App = () => {
           </Route>
           <Route path="/quiz">
             <QuizPage />
+          </Route>
+          <Route path="/results">
+            <ResultPage />
           </Route>
         </Switch>
       </Container>

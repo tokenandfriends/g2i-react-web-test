@@ -30,9 +30,11 @@ const QuizPage = () => {
   }, [])
 
   const nextQuestion = () => {
-    setCount(count+1)
-    setCurrentIndex(currentIndex+1)
-    console.log('next question...')
+    if(count < 10){
+      setCount(count+1)
+      setCurrentIndex(currentIndex+1)
+    }
+    console.log('quiz is finished')
   }
 
   return(
@@ -49,12 +51,12 @@ const QuizPage = () => {
         <Grid item xs={12} md={12}>
           <Grid container spacing={3}>
             <Grid item xs={6}>
-              <Button onClick={() => nextQuestion}>
+              <Button onClick={nextQuestion}>
                 True
               </Button>
             </Grid>
             <Grid item xs={6}>
-              <Button onClick={() => nextQuestion}>
+              <Button onClick={nextQuestion}>
                 False
               </Button>
             </Grid>
