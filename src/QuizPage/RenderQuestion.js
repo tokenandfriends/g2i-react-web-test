@@ -2,6 +2,8 @@ import React, {} from 'react'
 // material ui
 import { makeStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
+//shared functions
+import Unescape from '../SharedFunctions/unescape'
 // styles
 const useStyles = makeStyles(theme => ({
   root:{
@@ -18,14 +20,6 @@ const useStyles = makeStyles(theme => ({
 const RenderQuestion = ({question}) => {
   const classes = useStyles()
 
-  function unescape(str){
-    return str.replace(/&lt;/g, "<")
-              .replace(/&gt;/g, ">")
-              .replace(/&quot;/g, '"')
-              .replace(/&amp;/g, "&")
-              .replace(/&#039;/g, "'")
-  }
-
   return(
     <Grid container spacing={3} className={classes.root}>
       {console.log('what is the question? ', question)}
@@ -34,7 +28,7 @@ const RenderQuestion = ({question}) => {
       </Grid>
       <Grid item xs={12} md={12} className={classes.box}>
         <p className={classes.text}>
-          {unescape(question.question)}
+          {Unescape(question.question)}
         </p>
       </Grid>
     </Grid>

@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const QuizPage = ({countAnswer}) => {
+const QuizPage = ({countAnswer, resultCollection}) => {
   const history = useHistory()
   const classes = useStyles()
   const [questions, setQuestions] = useState([])
@@ -33,8 +33,11 @@ const QuizPage = ({countAnswer}) => {
 
   const checkAnswer = (answer) => {
     if(questions[currentIndex].correct_answer.toLowerCase() === answer){
-      console.log('answer is RIGHT!')
+      resultCollection(questions[currentIndex], 1)
       countAnswer()
+    }
+    else{
+      resultCollection(questions[currentIndex], 0)
     }
   }
 
