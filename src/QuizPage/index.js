@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Axios from 'axios'
+import {useHistory} from 'react-router-dom'
 // material-ui
 import { makeStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
@@ -15,6 +16,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const QuizPage = () => {
+  const history = useHistory()
   const classes = useStyles()
   const [questions, setQuestions] = useState([])
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -33,6 +35,9 @@ const QuizPage = () => {
     if(count < 10){
       setCount(count+1)
       setCurrentIndex(currentIndex+1)
+    }
+    else{
+      history.push("/results")
     }
     console.log('quiz is finished')
   }
